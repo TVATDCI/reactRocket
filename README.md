@@ -10,7 +10,7 @@
 -- Clean up App.jsx --
 
 ### Project Structure
-/src
+`/src
  ├── /components
  │   ├── UserList.jsx
  │   ├── UserProfile.jsx
@@ -23,5 +23,6 @@
  │   ├── UserDetails.jsx
  ├── App.jsx
  └── main.jsx
+ `
 
 
