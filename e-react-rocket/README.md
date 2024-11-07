@@ -1,4 +1,4 @@
-# React Rocket
+# React Rocket :rocket:
 -- project setup --
 
 `npm create vite@latest e-react-rocket`
@@ -10,6 +10,8 @@
 -- Clean up App.jsx --
 
 ### Project Structure
+
+```bash
 /src
  ├── /components
  │   ├── UserList.jsx
@@ -23,5 +25,7 @@
  │   ├── UserDetails.jsx
  ├── App.jsx
  └── main.jsx
+
+```
 
 
