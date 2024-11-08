@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Hero />
-      <ImgFetcher count={7} onImagesFetched={handleImagesFetched} />
+      <ImgFetcher count={4} onImagesFetched={handleImagesFetched} />
       <ImgSlider images={images} onSelect={(index) => console.log(`Selected image index: ${index}`)} />
     </>
   );
