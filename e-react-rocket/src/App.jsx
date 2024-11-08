@@ -1,20 +1,18 @@
-import { useState } from 'react'
-import reactRocket from './assets/react-rocket.svg'
-import './App.css'
+import Hero from "./components/Hero";
+//import "./App.css";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const handleClick = () => {
+    console.log("Button clicked!");
+  };
 
   return (
     <>
-      <div>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactRocket} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>react-rocket</h1>
+      <Hero />
+
     </>
-  )
+  );
 }
 
-export default App
+export default App;
