@@ -25,7 +25,7 @@ const ImgSlider = ({ images, onSelect }) => {
     };
 
     return (
-        <SliderContainer>
+        <SliderContainer className="relative" >
             <h1 className="text-4xl font-bold flex justify-center p-4 text-neutral-100 mb-3 ">Best Seller/Winter 2024</h1>
             <StyledSlider>
                 <SliderArrows onClick={handlePrevClick}>
@@ -55,7 +55,7 @@ const ImgSlider = ({ images, onSelect }) => {
             />
 
             <DetailContainer>
-                <h2 className="text-2xl font-bold text-white">Product details</h2>
+                <h2 className="text-2xl font-bold text-white text-center">Product name selected</h2>
                 <p className="text-white">
                     This is a placeholder text for product details. You can replace this
                     with actual product information.
