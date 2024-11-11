@@ -6,11 +6,11 @@ import { BrowserRouter } from 'react-router-dom'
 import ProductContextProvider from './context/ProductContext'
 
 createRoot(document.getElementById('root')).render(
-<BrowserRouter>
-<ProductContextProvider>
-<App />
-</ProductContextProvider>
-</BrowserRouter>
-  
- 
+  <BrowserRouter>
+    <ProductContextProvider>
+      <App />
+    </ProductContextProvider>
+  </BrowserRouter>
+
+
 )
