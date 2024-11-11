@@ -5,20 +5,18 @@ const ImgSlider = ({ images, onSelect }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const handlePrevClick = () => {
-        const newIndex = (currentIndex - 1 + images.length) % images.length;
-        setCurrentIndex(newIndex);
-        onSelect(newIndex);
+        setCurrentIndex(
+            (prevIndex) => (prevIndex - 1 + images.length) % images.length
+        );
     };
 
     const handleNextClick = () => {
-        const newIndex = (currentIndex + 1) % images.length;
-        setCurrentIndex(newIndex);
-        onSelect(newIndex);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     };
 
     const handleThumbnailClick = (index) => {
-        setCurrentIndex(newIndex);
-        onSelect(newIndex);
+        setCurrentIndex(index);
+        onSelect(index);
     };
 
     const handleMainImageClick = () => {
@@ -63,7 +61,6 @@ const ImgSlider = ({ images, onSelect }) => {
                     with actual product information.
                 </p>
             </DetailContainer>
-
         </SliderContainer>
     );
 };
@@ -120,5 +117,7 @@ user - select: none;
 const DetailContainer = styled.div`
   padding: 20px;
   background-color: #333;
+  color: white;
+`;
   color: white;
 `;
