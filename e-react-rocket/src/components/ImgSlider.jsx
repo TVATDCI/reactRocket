@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const ImgSlider = ({ images, onSelect }) => {
+const ImgSlider = ({ images, onSelect, onMainImageClick }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const handlePrevClick = () => {
-        setCurrentIndex(
-            (prevIndex) => (prevIndex - 1 + images.length) % images.length
-        );
+        const newIndex = (currentIndex - 1 + images.length) % images.length;
+        setCurrentIndex(newIndex);
+        onSelect(newIndex);
     };
 
     const handleNextClick = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        const newIndex = (currentIndex + 1) % images.length;
+        setCurrentIndex(newIndex);
+        onSelect(newIndex);
     };
 
     const handleThumbnailClick = (index) => {
@@ -21,12 +23,12 @@ const ImgSlider = ({ images, onSelect }) => {
 
     const handleMainImageClick = () => {
         console.log(`Main image clicked: ${images[currentIndex]}`);
-        // Add any additional logic you want to handle when the main image is clicked
+        onMainImageClick(); // Call the handler to show SingleProduct
     };
 
     return (
         <SliderContainer className="relative" >
-            <h1 className="text-4xl font-bold flex justify-center p-4 text-neutral-100 mb-3 ">Best Seller/Winter 2024</h1>
+            <h1 className="text-4xl font-bold flex justify-center p-4 text-neutral-100 mb-3 ">Coming Soon!</h1>
             <StyledSlider>
                 <SliderArrows onClick={handlePrevClick}>
                     <span style={{ color: "white" }}>&#x2B9C;</span>
@@ -117,7 +119,5 @@ user - select: none;
 const DetailContainer = styled.div`
   padding: 20px;
   background-color: #333;
-  color: white;
-`;
   color: white;
 `;
