@@ -5,18 +5,20 @@ const ImgSlider = ({ images, onSelect }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const handlePrevClick = () => {
-        setCurrentIndex(
-            (prevIndex) => (prevIndex - 1 + images.length) % images.length
-        );
+        const newIndex = (currentIndex - 1 + images.length) % images.length;
+        setCurrentIndex(newIndex);
+        onSelect(newIndex);
     };
 
     const handleNextClick = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        const newIndex = (currentIndex + 1) % images.length;
+        setCurrentIndex(newIndex);
+        onSelect(newIndex);
     };
 
     const handleThumbnailClick = (index) => {
-        setCurrentIndex(index);
-        onSelect(index);
+        setCurrentIndex(newIndex);
+        onSelect(newIndex);
     };
 
     const handleMainImageClick = () => {
@@ -61,6 +63,7 @@ const ImgSlider = ({ images, onSelect }) => {
                     with actual product information.
                 </p>
             </DetailContainer>
+
         </SliderContainer>
     );
 };

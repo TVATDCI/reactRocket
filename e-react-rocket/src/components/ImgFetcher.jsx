@@ -10,9 +10,16 @@ const ImgFetcher = ({ count = 3, onImagesFetched }) => {
 
         const fetchImages = async () => {
             try {
-                const imgUrls = Array.from({ length: count }, () => `https://picsum.photos/200/300?random=${Math.floor(Math.random() * 1000)}`);
+                const imgUrls = Array.from(
+                    { length: count },
+                    () =>
+                        `https://picsum.photos/200/300?random=${Math.floor(
+                            Math.random() * 1000
+                        )}`
+                );
                 setImages(imgUrls);
-                onImagesFetched(imgUrls); // Pass the fetched images to the parent component
+                const mainImageId = imgUrls[0].split("=")[1]; // Extract the ID of the main image
+                onImagesFetched(imgUrls, mainImageId); // Pass the fetched images and main image ID to the parent component
                 fetchedRef.current = true;
             } catch (err) {
                 setError(err.message);
