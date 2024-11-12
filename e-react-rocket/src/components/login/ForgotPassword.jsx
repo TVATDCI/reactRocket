@@ -1,17 +1,29 @@
-// ForgotPassword.jsx
+// forgot password component
 
 import { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
-  max-width: 500px;
+  max-width: 600px;
   padding: 30px;
   margin: 100px auto 10px;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background: linear-gradient(135deg, #000, #333);
   text-align: center;
+
+  @media (max-width: 760px) {
+    max-width: 85%;
+    padding: 20px;
+    margin: 70px auto;
+  }
+
+  @media (max-width: 375px) {
+    max-width: 90%;
+    padding: 18px;
+    margin: 70px auto;
+  }
 `;
 
 const FormWrapper = styled.div`
@@ -26,12 +38,27 @@ const Input = styled.input`
   border-radius: 8px;
   font-size: 16px;
   box-sizing: border-box;
+
+  &:hover {
+    background-color: #edc561;
+    color: rgb(237, 197, 97);
+    font-weight: bold;
+  }
+
+  @media (max-width: 760px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 14px;
+    padding: 8px;
+  }
 `;
 
 const Button = styled.button`
   width: 100%;
   padding: 12px;
-  background-color: #4a90e2;
+  background-color: rgb(237, 197, 97);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -40,8 +67,28 @@ const Button = styled.button`
   box-sizing: border-box;
 
   &:hover {
-    background-color: #357abd;
+    background-color: white;
+    color: rgb(237, 197, 97);
+    font-weight: bold;
   }
+
+  @media (max-width: 760px) {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 14px;
+    padding: 8px;
+  }
+`;
+
+const H2 = styled.h2`
+  color: #edc561;
+`;
+
+const P = styled.p`
+  color: red;
 `;
 
 const ForgotPassword = () => {
@@ -52,14 +99,13 @@ const ForgotPassword = () => {
     e.preventDefault();
     navigate("/home");
 
-    // Handle forgot password logic here
     console.log("Sending password reset link to:", email);
   };
 
   return (
     <Wrapper>
-      <h2>Forgot Password</h2>
-      <p>Enter your email to receive a password reset link.</p>
+      <H2>Forgot Password</H2>
+      <P>Enter your email to receive a password reset link.</P>
       <form onSubmit={handleSubmit}>
         <FormWrapper>
           <Input

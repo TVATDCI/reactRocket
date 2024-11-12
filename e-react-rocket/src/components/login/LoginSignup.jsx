@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -9,60 +9,90 @@ const LoginSignupWrapper = styled.div`
   padding: 30px;
   margin: 80px auto;
   border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  box-shadow:(0 0 25px rgba(255, 223, 0, 0.4));
+  background: linear-gradient(135deg, #000, #333);
   text-align: center;
-  display : flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media (max-width: 760px) {
+    max-width: 85%;
+    padding: 20px;
+    margin: 100px auto;
+  }
+
+  @media (max-width: 375px) {
+    width: 100%;
+    max-width: 320px;
+    padding: 15px;
+    margin: 100px auto;
+  }
 `;
 
 const FormTitle = styled.h2`
   font-size: 34px;
-  color: #4a90e2;
+  color: #eaa504;
   margin-bottom: 20px;
+
+  @media (max-width: 760px) {
+    font-size: 26px;
+    margin-bottom: 18px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
 `;
 
 const InputWrapper = styled.div`
   position: relative;
-  width: 80%;
-margin-top: 10px;
+  width: 100%; 
+  margin-top: 10px;
 `;
 
 const Input = styled.input`
   width: 100%;
-  padding: 12px 40px 12px 12px;
-  border: 1px solid #ddd;
+  padding: 12px 40px 12px 12px; 
+  border: 2px solid white;
   border-radius: 8px;
   font-size: 16px;
   outline: none;
+  box-sizing: border-box; 
   transition: border-color 0.3s;
+  
 
   &:focus {
-    border-color: #4a90e2;
+    border-color: red;
     box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+  }
+    &:hover {
+    border-color: #edc561;
+    background-color: #edc561;
+   
+
+  @media (max-width: 375px) {
+    font-size: 14px;
+    padding: 10px 35px 10px 10px;
   }
 `;
 
 const TogglePasswordIcon = styled.span`
   position: absolute;
   top: 50%;
-  right: -45px;
+  right: 10px;
   transform: translateY(-50%);
   cursor: pointer;
   color: #555;
 `;
-const P = styled.p`
-width: 80%;
-
-`;
 
 const Button = styled.button`
   width: 100%;
-  padding: 14px;
+  padding: 12px; 
   margin-top: 20px;
-  background-color: #4a90e2;
+  background-color: rgb(237, 197, 97);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -70,25 +100,56 @@ const Button = styled.button`
   font-size: 16px;
   font-weight: bold;
   transition: background-color 0.3s;
-
+  box-sizing: border-box; 
 
   &:hover {
-    background-color: #357abd;
+    background-color: white;
+    color: rgb(237, 197, 97);
+    border-color: red;
   }
+
+  @media (max-width: 375px) {
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 15px;
+  }
+`;
+
+const Form = styled.form`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const ForgotLink = styled.p`
   margin-top: 10px;
   font-size: 14px;
-  color: #4a90e2;
+  color: red;
   cursor: pointer;
   text-decoration: underline;
 
   &:hover {
     color: #357abd;
   }
+
+  @media (max-width: 375px) {
+    font-size: 12px;
+  }
 `;
 
+const P = styled.p`
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  color: #eec661;
+
+  @media (max-width: 375px) {
+    font-size: 12px;
+  }
+`;
+
+// Component
 const LoginSignup = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
@@ -104,7 +165,7 @@ const LoginSignup = () => {
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
-    setError(""); // Clear error on form toggle
+    setError("");
   };
 
   const handleInputChange = (e) => {
@@ -118,7 +179,7 @@ const LoginSignup = () => {
       return;
     }
 
-    navigate("/dashboard");
+    navigate("/home");
 
     console.log(isLogin ? "Logging in..." : "Registering...", formValues);
   };
@@ -130,7 +191,7 @@ const LoginSignup = () => {
   return (
     <LoginSignupWrapper>
       <FormTitle>{isLogin ? "Login" : "Signup"}</FormTitle>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <InputWrapper>
           <Input
             type="text"
@@ -195,7 +256,7 @@ const LoginSignup = () => {
         )}
         {error && <p style={{ color: "red" }}>{error}</p>}
         <Button type="submit">{isLogin ? "Login" : "Signup"}</Button>
-      </form>
+      </Form>
       <ForgotLink onClick={() => navigate("/forgot-password")}>
         Forgot Password?
       </ForgotLink>
@@ -207,10 +268,11 @@ const LoginSignup = () => {
         <button
           onClick={toggleForm}
           style={{
-            color: "#4a90e2",
+            color: "#eec661",
             cursor: "pointer",
             background: "none",
             border: "none",
+            fontSize: "16px",
             fontWeight: "bold",
           }}
         >
@@ -220,7 +282,7 @@ const LoginSignup = () => {
       <p
         onClick={handleSubmit}
         style={{
-          color: "#4a90e2",
+          color: "#eec661",
           cursor: "pointer",
           textDecoration: "underline",
         }}

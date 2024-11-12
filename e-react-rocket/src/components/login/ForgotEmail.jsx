@@ -1,18 +1,28 @@
-
-// ForgotEmail.jsx
-
+// ForgotEmail component is used to recover the email address of the user by entering the phone number.
 import { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
-  max-width: 400px;
+  max-width: 600px;
   padding: 30px;
   margin: 100px auto;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background: linear-gradient(135deg, #000, #333);
   text-align: center;
+
+  @media (max-width: 760px) {
+    max-width: 85%;
+    padding: 25px;
+    margin: 90px auto;
+  }
+
+  @media (max-width: 375px) {
+    max-width: 95%;
+    padding: 15px;
+    margin: 90px auto;
+  }
 `;
 
 const Input = styled.input`
@@ -22,22 +32,61 @@ const Input = styled.input`
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 16px;
-  box-sizing: border-box;  
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: #edc561;
+    color: rgb(237, 197, 97);
+    font-weight: bold;
+  }
+
+  @media (max-width: 760px) {
+    font-size: 15px;
+    padding: 9px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 13px;
+    padding: 7px;
+    margin: 8px 0;
+  }
+`;
+
+const P = styled.p`
+  color: red;
+`;
+const H2 = styled.h2`
+  color: #edc561;
 `;
 
 const Button = styled.button`
   width: 100%;
   padding: 12px;
-  background-color: #4a90e2;
-  color: #fff;
+  background-color: rgb(237, 197, 97);
+  color: white;
+  font-weight: bold;
   border: none;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  box-sizing: border-box;  
+  box-sizing: border-box;
+  margin-top: 10px;
 
   &:hover {
-    background-color: #357abd;
+    background-color: white;
+    color: rgb(237, 197, 97);
+    font-weight: bold;
+  }
+
+  @media (max-width: 760px) {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 13px;
+    padding: 7px;
+    margin-top: 8px;
   }
 `;
 
@@ -53,8 +102,8 @@ const ForgotEmail = () => {
 
   return (
     <Wrapper>
-      <h2>Forgot Email</h2>
-      <p>Enter your phone number to recover your email address.</p>
+      <H2>Forgot Email</H2>
+      <P>Enter your phone number to recover your email address.</P>
       <form onSubmit={handleSubmit}>
         <Input
           type="tel"
