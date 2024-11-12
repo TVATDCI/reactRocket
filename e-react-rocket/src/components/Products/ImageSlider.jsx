@@ -10,7 +10,6 @@ const SliderContainer = styled.div`
   margin-top: 20px;
   padding: 10px 0;
   scroll-behavior: smooth;
-  border-bottom: 1px solid red;
 `;
 
 const SliderImage = styled.img`
@@ -36,7 +35,7 @@ function ImageSlider({ images }) {
 
   return (
     <>
-      <SliderContainer className="relative p-4 bg-black w-auto h-auto " >
+      <SliderContainer className="w-auto h-auto " >
         {images.slice(0, 6).map((image, index) => (
           <SliderImage
             key={index}

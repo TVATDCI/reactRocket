@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-const ImgFetcher = ({ count = 3, onImagesFetched }) => {
+const PhotoFetcher = ({ count = 3, onImagesFetched }) => {
     const [images, setImages] = useState([]);
     const [error, setError] = useState(null);
     const fetchedRef = useRef(false);
@@ -36,4 +36,4 @@ const ImgFetcher = ({ count = 3, onImagesFetched }) => {
     return null; // Return null as this component does not render anything itself
 };
 
-export default ImgFetcher;
+export default PhotoFetcher;

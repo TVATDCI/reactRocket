@@ -1,6 +1,6 @@
 import React from "react";
-import Section from "./Section";
-import Button from "./Button";
+import Button from "../Herosection/Button";
+import Section from "../Herosection/Section";
 
 const ProductGallery = ({
     mainImageId,

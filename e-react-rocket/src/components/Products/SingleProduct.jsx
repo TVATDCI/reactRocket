@@ -10,12 +10,12 @@ const ProductContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #f8f8f8;
+  background-color: #fff;
   min-height: 100vh;
 `;
 
 const ProductImage = styled.img`
-  width: 320px;
+  min-width: 320px;
   height: auto;
   border-radius: 8px;
   margin-bottom: 20px;

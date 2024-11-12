@@ -16,8 +16,8 @@ const StyledButton = styled.button`
     text-decoration: none;
     transition: background-color 0.3s;
     &:hover {
-        background-color: white;
-        color: red;
+        background-color: #F02637;
+        color: white;
     }
 `;
 const Button = ({ onClick, children, disabled }) => {

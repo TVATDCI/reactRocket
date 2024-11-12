@@ -14,7 +14,7 @@ const ToggleGroup = styled.div`
   border-radius: 12px;
   font-weight: 300;
   margin: 22px 0px;
-
+ margin-top:100px;
   @media screen and (max-width: 768px) {
     font-size: 12px;
   }
@@ -47,6 +47,7 @@ const Divider = styled.div`
   width: 1.5px;
   background-color: white;  
 `;
+
 
 
 

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../context/ProductContext";
 import { useContext } from "react";
+import Section from "../Herosection/Section";
 
 const ProductContainer = styled.div`
   display: flex;
@@ -10,17 +11,24 @@ const ProductContainer = styled.div`
   gap: 20px;
   justify-content: center;
   padding: 20px;
-  background-color: #f9f9f9;
+  margin-top: 50px;
+  color: #333; // text color added-by T
 `;
 
 const Product = styled.div`
+  min-width: 320px; // min-width added-by T
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 16px;
-  min-width: 320px;
+  width: 200px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: lightgray;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  background-color: #fff;
+  &:hover {
+    transform: translateY(-5px);
+  }
 `;
 
 const ProductImage = styled.img`
@@ -45,8 +53,9 @@ const SortSelect = styled.select`
   padding: 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
-  background-color: #fff;
+  background-color: transparent;
   font-size: 1em;
+  margin-top: 80px;
 `;
 
 function ProductCard({ toggle }) {
@@ -117,7 +126,10 @@ function ProductCard({ toggle }) {
               <ProductPrice>{product.price}</ProductPrice>
               <ProductImage src={product.thumbnail} alt={product.title} />
 
-              <button onClick={() => navigate(`/products/${product.id}`)}>
+              <button
+                className="viewProduct rounded-[.3rem] py-1 px-2 hover:bg-[#F02637] "
+                onClick={() => navigate(`/products/${product.id}`)}
+              >
                 View Product
               </button>
             </Product>

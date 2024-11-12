@@ -27,11 +27,13 @@ const ImgSlider = ({ images, onSelect, onMainImageClick }) => {
     };
 
     return (
-        <SliderContainer className="relative" >
-            <h1 className="text-4xl font-bold flex justify-center p-4 text-neutral-100 mb-3 ">Coming Soon!</h1>
+        <SliderContainer className="relative">
+            <h1 className="text-4xl font-bold flex justify-center text-neutral-100 ">
+                Black Friday Special Offer!
+            </h1>
             <StyledSlider>
                 <SliderArrows onClick={handlePrevClick}>
-                    <span style={{ color: "white" }}>&#x2B9C;</span>
+                    <span style={{ color: "red" }}>&#x2B9C;</span>
                 </SliderArrows>
 
                 <StyledThumbnailSlider>
@@ -46,16 +48,19 @@ const ImgSlider = ({ images, onSelect, onMainImageClick }) => {
                     ))}
                 </StyledThumbnailSlider>
                 <SliderArrows onClick={handleNextClick}>
-                    <span style={{ color: "white" }}>&#x2B9E;</span>
+                    <span style={{ color: "red" }}>&#x2B9E;</span>
                 </SliderArrows>
             </StyledSlider>
 
+            <p className="text-white mt-3 border-y-2 ">
+                Click on the image to view more details
+            </p>
             <StyledMainImage
                 src={images[currentIndex]}
                 alt="Main Image"
                 onClick={handleMainImageClick}
             />
-
+            {/**
             <DetailContainer>
                 <h2 className="text-2xl font-bold text-white text-center">Product name selected</h2>
                 <p className="text-white">
@@ -63,6 +68,7 @@ const ImgSlider = ({ images, onSelect, onMainImageClick }) => {
                     with actual product information.
                 </p>
             </DetailContainer>
+            */}
         </SliderContainer>
     );
 };
@@ -71,24 +77,21 @@ export default ImgSlider;
 
 const SliderContainer = styled.div`
   display: flex;
-    flex-direction: column;
-    align-items: center;
-
+  flex-direction: column;
+  align-items: center;
 `;
 
 const StyledSlider = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #333;
-    padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
 `;
 
 const StyledThumbnailSlider = styled.div`
 display: flex; /* Display thumbnails in a row */
-background - color: #333;
+background - color: red;
 `;
-
 
 const StyledMainImage = styled.img`
 display: flex;
@@ -100,19 +103,19 @@ margin: 20px;
 cursor: pointer; /* Add cursor pointer to indicate it's clickable */
 `;
 
-
 const StyledThumbnail = styled.img`
 width: 150px;
 height: 150px;
 object - fit: cover;
-border: 2px solid ${(props) => (props.isActive ? "white" : "transparent")};
+border-bottom: 2px solid ${(props) =>
+        props.isActive ? "#83051ae6" : "transparent"};
 cursor: pointer;
-margin: 0 10px;
+margin: 0 23px;
 `;
 
 const SliderArrows = styled.div`
 cursor: pointer;
-font - size: 2rem;
+font - size: 4rem;
 user - select: none;
 `;
 

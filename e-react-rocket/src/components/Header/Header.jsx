@@ -26,7 +26,7 @@ const Header = () => {
       <nav className={`nav-menu ${menuOpen ? "active" : ""}`}>
         <ul className="nav-list">
           <li className="nav-item">
-            <a onClick={() => navigate('/hero')} className="nav-link">
+            <a onClick={() => navigate('/')} className="nav-link">
               Home
             </a>
           </li>
@@ -43,11 +43,11 @@ const Header = () => {
         </ul>
       </nav>
 
-      <div className="header-right">
-        <a  onClick={() =>navigate('/login') } className="nav-link">
+      <div className="header-right p-2 ">
+        <a onClick={() => navigate('/login')} className="nav-link">
           <FaCircleUser />
         </a>
-        <a onClick={() =>navigate('/cart') } className="nav-link">
+        <a onClick={() => navigate('/cart')} className="nav-link">
           <ImCart />
         </a>
       </div>
