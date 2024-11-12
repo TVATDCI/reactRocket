@@ -26,8 +26,8 @@ const ToggleButton = styled.div`
   border-radius: 6px;
   background-color: grey;
 ${({ active }) =>
-  active &&
-  `
+    active &&
+    `
   background-color: black;
   `}
 
@@ -52,87 +52,87 @@ const Divider = styled.div`
 
 function Products() {
   const [toggle, setToggle] = useState('all');
- 
- 
+
+
   return (
     <div>
-   
-    <div>
-    <ToggleGroup>
-    {toggle === "all" ? (
-      <ToggleButton active value="all" onClick={() => setToggle("all")}>
-        All
-      </ToggleButton>
-    ) : (
-      <ToggleButton value="all" onClick={() => setToggle("all")}>
-        All
-      </ToggleButton>
-    )}
 
-    <Divider />
-    {toggle === "furniture" ? (
-      <ToggleButton
-        active
-        value="furnituret"
-        onClick={() => setToggle("furniture")}
-      >
-        FURNITURE
-      </ToggleButton>
-    ) : (
-      <ToggleButton
-        value="furniture"
-        onClick={() => setToggle("furniture")}
-      >
-        FURNITURE
-      </ToggleButton>
-    )}
+      <div>
+        <ToggleGroup>
+          {toggle === "all" ? (
+            <ToggleButton active value="all" onClick={() => setToggle("all")}>
+              All
+            </ToggleButton>
+          ) : (
+            <ToggleButton value="all" onClick={() => setToggle("all")}>
+              All
+            </ToggleButton>
+          )}
 
-    <Divider />
-    {toggle === "fragrances" ? (
-      <ToggleButton
-        active
-        value="fragrances"
-        onClick={() => setToggle("fragrances")}
-      >
-      FRAGRANCE
-      </ToggleButton>
-    ) : (
-      <ToggleButton value="fragrances" onClick={() => setToggle("fragrances")}>
-      FRAGRANCE
-      </ToggleButton>
-    )}
-    <Divider />
-    {toggle === "groceries" ? (
-      <ToggleButton
-        active
-        value="groceries"
-        onClick={() => setToggle("groceries")}
-      >
-     GROCERIES
-      </ToggleButton>
-    ) : (
-      <ToggleButton value="groceries" onClick={() => setToggle("groceries")}>
-     GROCERIES
-      </ToggleButton>
-    )}
-    <Divider />
-    {toggle === "home-decoration" ? (
-      <ToggleButton
-        active
-        value="home-decoration"
-        onClick={() => setToggle("home-decoration")}
-      >
-      HOME DECORATION
-      </ToggleButton>
-    ) : (
-      <ToggleButton value="home-decoration " onClick={() => setToggle("home-decoration")}>
-      HOME DECORATION
-      </ToggleButton>
-    )}
-  </ToggleGroup>
-  
-  </div>
-  <ProductCard toggle={toggle} />
+          <Divider />
+          {toggle === "furniture" ? (
+            <ToggleButton
+              active
+              value="furniture"
+              onClick={() => setToggle("furniture")}
+            >
+              FURNITURE
+            </ToggleButton>
+          ) : (
+            <ToggleButton
+              value="furniture"
+              onClick={() => setToggle("furniture")}
+            >
+              FURNITURE
+            </ToggleButton>
+          )}
+
+          <Divider />
+          {toggle === "fragrances" ? (
+            <ToggleButton
+              active
+              value="fragrances"
+              onClick={() => setToggle("fragrances")}
+            >
+              FRAGRANCE
+            </ToggleButton>
+          ) : (
+            <ToggleButton value="fragrances" onClick={() => setToggle("fragrances")}>
+              FRAGRANCE
+            </ToggleButton>
+          )}
+          <Divider />
+          {toggle === "groceries" ? (
+            <ToggleButton
+              active
+              value="groceries"
+              onClick={() => setToggle("groceries")}
+            >
+              GROCERIES
+            </ToggleButton>
+          ) : (
+            <ToggleButton value="groceries" onClick={() => setToggle("groceries")}>
+              GROCERIES
+            </ToggleButton>
+          )}
+          <Divider />
+          {toggle === "home-decoration" ? (
+            <ToggleButton
+              active
+              value="home-decoration"
+              onClick={() => setToggle("home-decoration")}
+            >
+              HOME DECORATION
+            </ToggleButton>
+          ) : (
+            <ToggleButton value="home-decoration " onClick={() => setToggle("home-decoration")}>
+              HOME DECORATION
+            </ToggleButton>
+          )}
+        </ToggleGroup>
+
+      </div>
+      <ProductCard toggle={toggle} />
     </div>
   )
 }
