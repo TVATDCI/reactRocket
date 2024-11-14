@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../context/ProductContext";
 import { useContext } from "react";
-import Section from "../Herosection/Section";
 
 const ProductContainer = styled.div`
   display: flex;
@@ -11,23 +10,30 @@ const ProductContainer = styled.div`
   gap: 20px;
   justify-content: center;
   padding: 20px;
-  margin-top: 50px;
-  color: #333; // text color added-by T
+  margin-top: 0px;
 `;
 
 const Product = styled.div`
-  min-width: 320px; // min-width added-by T
-  border: 1px solid #ccc;
+  border: 1px solid #ffd700;
   border-radius: 8px;
   padding: 16px;
-  width: 200px;
+  min-width: 320px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
-  transition: transform 0.3s ease;
-  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
   &:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    width: 200px;
+  }
+
+  @media (max-width: 375px) {
+    width: 100%;
   }
 `;
 
@@ -35,16 +41,20 @@ const ProductImage = styled.img`
   width: 100%;
   height: auto;
   border-radius: 8px;
+  margin-bottom: 10px;
 `;
 
 const ProductTitle = styled.h3`
   font-size: 1.2em;
   margin: 10px 0;
+  color: #c19a6b;
 `;
 
 const ProductPrice = styled.p`
   font-size: 1em;
   color: #333;
+  font-family: "Georgia", serif; /* Luxurious serif font */
+  margin: 10px 0;
 `;
 const SortSelect = styled.select`
   position: absolute;
@@ -52,10 +62,34 @@ const SortSelect = styled.select`
   right: 20px;
   padding: 8px;
   border-radius: 4px;
-  border: 1px solid #ccc;
-  background-color: transparent;
+  border: 1px solid #ffd700;
+  background-color: #fff;
   font-size: 1em;
-  margin-top: 80px;
+  margin-top: 130px;
+  color: #333;
+
+  @media (max-width: 768px) {
+    position: static;
+    margin: 10px 0 20px;
+  }
+`;
+
+const ViewButton = styled.button`
+  background: linear-gradient(145deg, #8b4513, #a0522d);
+  color: #f5f5f5;
+  border: 1px solid #ffd700;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    background: linear-gradient(145deg, #a0522d, #8b4513);
+  }
 `;
 
 function ProductCard({ toggle }) {
@@ -64,7 +98,7 @@ function ProductCard({ toggle }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    let url = "https://dummyjson.com/products?limit=60";
+    let url = "https://dummyjson.com/products?limit=100";
 
     fetch(url)
       .then((response) => {
@@ -119,19 +153,17 @@ function ProductCard({ toggle }) {
 
       <ProductContainer>
         {products
+          .slice(0, 80)
           .filter((product) => toggle === "all" || product.category === toggle)
           .map((product) => (
             <Product key={product.id}>
               <ProductTitle>{product.title}</ProductTitle>
-              <ProductPrice>{product.price}</ProductPrice>
+              <ProductPrice>${product.price}</ProductPrice>
               <ProductImage src={product.thumbnail} alt={product.title} />
 
-              <button
-                className="viewProduct rounded-[.3rem] py-1 px-2 hover:bg-[#F02637] "
-                onClick={() => navigate(`/products/${product.id}`)}
-              >
+              <ViewButton onClick={() => navigate(`/products/${product.id}`)}>
                 View Product
-              </button>
+              </ViewButton>
             </Product>
           ))}
       </ProductContainer>

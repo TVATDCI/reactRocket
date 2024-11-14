@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled, { keyframes } from "styled-components";
 
 // Animation keyframes for the rocket moving in a circular path
 const moveAround = keyframes`
@@ -22,12 +22,12 @@ const NotFoundWrapper = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-image: url('https://images.unsplash.com/photo-1487925876428-ebd8a23ee1d4?q=80&w=1922&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: url("https://images.unsplash.com/photo-1487925876428-ebd8a23ee1d4?q=80&w=1922&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   background-position: center;
   text-align: center;
   color: #fff;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   overflow: hidden;
   position: relative;
 `;
@@ -94,7 +94,7 @@ const NotFound = () => {
         <ErrorMessage>Oops! You’re floating in unknown territory.</ErrorMessage>
         <HomeButton to="/">Return to Earth!</HomeButton>
       </NotFoundContent>
-      <Rocket src='https://www.freeiconspng.com/uploads/rocket-ship-png-13.png' />
+      <Rocket src="https://www.freeiconspng.com/uploads/rocket-ship-png-13.png" />
     </NotFoundWrapper>
   );
 };

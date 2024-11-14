@@ -16,6 +16,7 @@ import ImgFetcher from "./components/gallery/ImgFetcher";
 import ImgSlider from "./components/gallery/ImgSlider";
 import ProductGallery from "./components/gallery/ProductGallery";
 import Footer from "./components/Footer/Footer";
+import About from "./components/About/About";
 
 function App() {
   const [images, setImages] = useState([]);
@@ -87,6 +88,14 @@ function App() {
           element={
             <Layout>
               <Cart />
+            </Layout>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <Layout>
+              <About />
             </Layout>
           }
         />
