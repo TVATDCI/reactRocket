@@ -1,0 +1,270 @@
+/* General Body Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+div {
+  text-align: center;
+  margin-top: 50px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Best Seller Title Styling */
+.best_seller {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffd700; /* Gold color for fallback */
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: scroll 10s linear infinite;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+  .best_seller {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 375px) {
+  .best_seller {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+}
+
+/* Container for Product Cards */
+.product-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
+
+@media (max-width: 1024px) {
+  .product-card {
+    gap: 15px; /* Reduce gap for medium screens */
+  }
+
+  .product-card > div {
+    width: 220px; /* Adjust width of each card */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    gap: 10px; /* Reduce gap on smaller screens */
+  }
+
+  .product-card > div {
+    width: 200px; /* Adjust width of each card */
+  }
+}
+
+@media (max-width: 375px) {
+  .product-card {
+    gap: 10px; /* Keep small gap on very small screens */
+    flex-direction: column; /* Stack cards vertically */
+  }
+
+  .product-card > div {
+    width: 100%; /* Make each card take full width */
+    margin-bottom: 20px; /* Add space between cards */
+  }
+}
+
+/* Product Card Styling */
+.product-card > div {
+  width: 250px;
+  height: 350px;
+  padding: 20px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2b2b2b, #1a1a1a); /* Dark gradient */
+  border: 2px solid #c0a062; /* Softer, antique gold */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  animation: pulseEffect 3s ease-in-out infinite,
+    glitterEffect 1.5s linear infinite;
+  overflow-y: hidden;
+}
+
+@media (max-width: 768px) {
+  .product-card > div {
+    width: 200px;
+    height: 300px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 375px) {
+  .product-card > div {
+    width: 150px;
+    height: 250px;
+    padding: 10px;
+  }
+}
+
+/* Hover Effects for Product Cards */
+.product-card > div:hover {
+  transform: scale(1.05); /* Slight zoom-in effect */
+  box-shadow: 0px 6px 15px rgba(255, 215, 0, 0.5);
+  filter: brightness(1.1); /* Slight brightness increase */
+}
+
+/* Image Styling Inside Product Card */
+.product-card img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .product-card img {
+    height: 55%;
+  }
+}
+
+@media (max-width: 375px) {
+  .product-card img {
+    height: 50%;
+  }
+}
+
+/* Hover Effect on Image */
+.product-card img:hover {
+  transform: scale(1.1);
+}
+
+/* Title Styling Inside Product Card */
+.product-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #c9a635;
+  margin-top: 15px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .product-card h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .product-card h3 {
+    font-size: 0.9rem;
+  }
+}
+
+/* Stylish Underline Effect for Title */
+.product-card h3::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, rgb(239, 198, 136), rgb(242, 151, 14));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.product-card h3:hover::after {
+  transform: scaleX(1); /* Show underline effect on hover */
+}
+
+/* Price Styling Inside Product Card */
+.product-card p {
+  font-size: 1.2rem;
+  color: #d2b48c;
+  margin-top: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .product-card p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .product-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Price Hover Effect */
+.product-card p:hover {
+  color: #ff2e5a; /* Change price color on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Hover Effect for Title on Card Hover */
+.product-card > div:hover h3 {
+  color: rgb(237, 158, 40); /* Change title color to vibrant tone */
+}
+
+/* Image Zoom on Hover */
+.product-card > div:hover img {
+  transform: scale(1.1); /* Slight zoom effect on image */
+}
+
+/* Animation for Pulse and Glitter Effects */
+@keyframes pulseEffect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes glitterEffect {
+  0% {
+    background-position: 200% 200%;
+  }
+  100% {
+    background-position: -200% -200%;
+  }
+}
+
+/* Adjust animations for smaller screens */
+@media (max-width: 768px) {
+  .product-card > div {
+    animation: pulseEffect 1.5s ease-in-out infinite; /* Shorten animation duration */
+  }
+}
+
+@media (max-width: 375px) {
+  .product-card > div {
+    animation: none; /* Disable animation for very small screens */
+  }
+}
