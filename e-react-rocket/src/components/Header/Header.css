@@ -158,12 +158,13 @@
     font-size: 1.5em;
     bottom: 10px;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: -35px;
+    width: 25px;
+    right: 30px;
   }
   .header-right {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 100%;
     margin-top: 5px;
   }
