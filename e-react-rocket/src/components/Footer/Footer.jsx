@@ -39,9 +39,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="#services" aria-label="Explore our services">
-                Services
-              </a>
+              <a aria-label="Explore our services">Services</a>
             </li>
             <li>
               <a href="#" aria-label="Contact us">

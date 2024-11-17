@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react"; // UseState to manage the main image
+import { useParams, useNavigate } from "react-router-dom"; // UseParams to get the product id
 import { ProductContext } from "../../context/ProductContext";
 import styled from "styled-components";
 import ImageSlider from "./ImageSlider"; // Import the new ImageSlider component
